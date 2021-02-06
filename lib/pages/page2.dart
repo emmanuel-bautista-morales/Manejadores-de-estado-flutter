@@ -1,4 +1,7 @@
+import 'package:estados/bloc/usuario/usuario_cubit.dart';
+import 'package:estados/models/usuario.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Page2 extends StatelessWidget {
   @override
@@ -17,7 +20,13 @@ class Page2 extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               color: Colors.blue,
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<UsuarioCubit>(context).seleccionarUsuario(
+                    new Usuario(
+                        nombre: 'Yesenia Rendón',
+                        edad: 21,
+                        profesiones: ['Ingenieria en Gestión perrona']));
+              },
             ),
             MaterialButton(
               child: Text(

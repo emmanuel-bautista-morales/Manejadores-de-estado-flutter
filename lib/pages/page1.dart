@@ -1,4 +1,6 @@
+import 'package:estados/bloc/usuario/usuario_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Page1 extends StatelessWidget {
   @override
@@ -7,7 +9,17 @@ class Page1 extends StatelessWidget {
       appBar: AppBar(
         title: Text('Página 1'),
       ),
-      body: UserInfo(),
+      body: BlocBuilder<UsuarioCubit, UsuarioState>(
+        builder: (_, state) {
+          if (state is UsuarioInitial) {
+            return Center(
+              child: Text('No hay información del usuario'),
+            );
+          } else {
+            return UserInfo();
+          }
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.accessibility_outlined),
         onPressed: () {
