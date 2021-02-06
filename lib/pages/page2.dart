@@ -1,4 +1,7 @@
+import 'package:estados/bloc/usuario/usuario_bloc.dart';
+import 'package:estados/models/usuario.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Page2 extends StatelessWidget {
   @override
@@ -17,7 +20,14 @@ class Page2 extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               color: Colors.blue,
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<UsuarioBloc>(context)
+                    .add(ActivarUsuario(new Usuario(
+                  nombre: 'Yesenia Rendón',
+                  edad: 22,
+                  profesiones: ['Inge perrona'],
+                )));
+              },
             ),
             MaterialButton(
               child: Text(
@@ -25,7 +35,9 @@ class Page2 extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               color: Colors.blue,
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<UsuarioBloc>(context).add(CambiarEdad(30));
+              },
             ),
             MaterialButton(
               child: Text(
@@ -33,7 +45,10 @@ class Page2 extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               color: Colors.blue,
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<UsuarioBloc>(context)
+                    .add(AgregarProfesion('Profesión perrona'));
+              },
             ),
           ],
         ),
