@@ -34,7 +34,9 @@ class Page2 extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               color: Colors.blue,
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<UsuarioCubit>(context).cambiarEdad(30);
+              },
             ),
             MaterialButton(
               child: Text(
@@ -42,7 +44,9 @@ class Page2 extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               color: Colors.blue,
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<UsuarioCubit>(context).agregarProfesion();
+              },
             ),
           ],
         ),
